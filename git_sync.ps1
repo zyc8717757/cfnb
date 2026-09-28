@@ -2,11 +2,12 @@ Set-Location $PSScriptRoot
 
 $branch = "main"
 
-Write-Host "正在同步远程仓库..."
-
-git pull --rebase origin $branch
-
 Write-Host "正在检查 ip.txt..."
+
+if (-not (Test-Path "ip.txt")) {
+    Write-Host "❌ 找不到 ip.txt"
+    exit 1
+}
 
 git add ip.txt
 
@@ -18,9 +19,19 @@ if ($LASTEXITCODE -ne 0) {
 
     git commit -m $commit_msg
 
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host "❌ Git commit 失败"
+        exit 1
+    }
+
     git push origin $branch
 
-    Write-Host "✅ ip.txt 已推送到 GitHub"
+    if ($LASTEXITCODE -eq 0) {
+        Write-Host "✅ ip.txt 已推送到 GitHub"
+    } else {
+        Write-Host "❌ GitHub 推送失败"
+        exit 1
+    }
 
 } else {
 
