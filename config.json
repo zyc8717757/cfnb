@@ -10,7 +10,7 @@
     "PER_COUNTRY_TOP_N": 1,
     "_comment_PER_COUNTRY_TOP_N": "分国家模式下每个国家保留的节点数量",
 
-    "BANDWIDTH_CANDIDATES": 80,
+    "BANDWIDTH_CANDIDATES": 150,
     "_comment_BANDWIDTH_CANDIDATES": "进入带宽测速的候选节点数（从TCP通过者中选取前N个）",
 
     "TCP_PROBES": 3,
@@ -162,13 +162,13 @@
     "HTTP_TEST_ENABLED": true,
     "_comment_HTTP_TEST_ENABLED": "是否在可用性测试后开启 HTTP检测（过滤 HTTP 响应头非Cloudflare 的节点）",
 
-    "HTTP_TEST_TIMEOUT": 3,
+    "HTTP_TEST_TIMEOUT": 6,
     "_comment_HTTP_TEST_TIMEOUT": "单次 HTTP 请求读取超时（秒）",
 
-    "HTTP_TEST_CONNECT_TIMEOUT": 3,
+    "HTTP_TEST_CONNECT_TIMEOUT": 5,
     "_comment_HTTP_TEST_CONNECT_TIMEOUT": "HTTP 检测的连接超时（秒）",
 
-    "HTTP_TEST_MAX_ROUNDS": 2,
+    "HTTP_TEST_MAX_ROUNDS": 3,
     "_comment_HTTP_TEST_MAX_ROUNDS": "HTTP 检测整体失败（通过率为0）时的最大重试轮数",
 
     "HTTP_TEST_ROUND_DELAY": 3,
@@ -177,13 +177,13 @@
     "HTTP_TEST_INNER_RETRY_ENABLED": true,
     "_comment_HTTP_TEST_INNER_RETRY_ENABLED": "HTTP 检测是否启用单节点内部重试",
 
-    "HTTP_TEST_MAX_RETRIES": 2,
+    "HTTP_TEST_MAX_RETRIES": 3,
     "_comment_HTTP_TEST_MAX_RETRIES": "HTTP 请求超时后的最大重试次数",
 
     "HTTP_TEST_RETRY_DELAY": 3,
     "_comment_HTTP_TEST_RETRY_DELAY": "HTTP 请求重试间隔（秒）",
 
-    "HTTP_TEST_METHOD": "HEAD",
+    "HTTP_TEST_METHOD": "GET",
     "_comment_HTTP_TEST_METHOD": "HTTP 请求方法（GET 或 HEAD）",
 
     "HTTP_LATENCY_WEIGHT": 3.0,
@@ -220,10 +220,10 @@
     "BANDWIDTH_SIZE_MB": 1.0,
     "_comment_BANDWIDTH_SIZE_MB": "带宽测速下载文件大小（MB）",
 
-    "BANDWIDTH_TIMEOUT": 3,
+    "BANDWIDTH_TIMEOUT": 10,
     "_comment_BANDWIDTH_TIMEOUT": "单个节点带宽测速超时（秒）",
 
-    "BANDWIDTH_RETRY_MAX": 2,
+    "BANDWIDTH_RETRY_MAX": 3,
     "_comment_BANDWIDTH_RETRY_MAX": "带宽测速整体失败（结果为空）时的最大重试轮数",
 
     "BANDWIDTH_RETRY_DELAY": 3,
@@ -232,10 +232,10 @@
     "BANDWIDTH_URL_TEMPLATE": "{scheme}://speed.cloudflare.com:{port}/__down?bytes={bytes}",
     "_comment_BANDWIDTH_URL_TEMPLATE": "带宽测速 URL 模板，{bytes} 将被替换为实际字节数",
 
-    "BANDWIDTH_PROCESS_BUFFER": 2,
+    "BANDWIDTH_PROCESS_BUFFER": 3,
     "_comment_BANDWIDTH_PROCESS_BUFFER": "带宽测速 curl 进程额外缓冲时间（秒）",
 
-    "BANDWIDTH_CONNECT_TIMEOUT": 3,
+    "BANDWIDTH_CONNECT_TIMEOUT": 5,
     "_comment_BANDWIDTH_CONNECT_TIMEOUT": "curl 测速连接超时（秒）",
 
     "SPEED_WEIGHT": 3.0,
@@ -262,7 +262,7 @@
     "_comment_retry": "重试策略配置",
     "DNS_UPDATE_MAX_RETRIES": 3,
     "DNS_UPDATE_RETRY_DELAY": 3,
-    "GITHUB_SYNC_MAX_RETRIES": 3,
+    "GITHUB_SYNC_MAX_RETRIES": 0,
     "GITHUB_SYNC_RETRY_DELAY": 3,
     "GIT_SYNC_PROCESS_TIMEOUT": 180,
     "_comment_GIT_SYNC_PROCESS_TIMEOUT": "Git 同步子进程最大运行时间（秒）",

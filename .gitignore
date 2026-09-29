@@ -4,3 +4,5 @@ git_sync.sh
 __pycache__/
 
 cfnb.log
+
+_main_cfnb_runtime.py
